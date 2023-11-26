@@ -3,13 +3,13 @@
 
 FDMBase::FDMBase(double _x_dom, unsigned long _J,
                  double _t_dom, unsigned long _N,
-                 std::unique_ptr<DiffusionPDE> _pde)
+                 DiffusionPDE* _pde)
   : x_dom(_x_dom), J(_J), t_dom(_t_dom), N(_N), pde(std::move(_pde)) {}
 
 FDMEulerExplicit::FDMEulerExplicit(double _x_dom, unsigned long _J,
                                    double _t_dom, unsigned long _N,
-                                   std::unique_ptr<DiffusionPDE> _pde)
-  : FDMBase(_x_dom, _J, _t_dom, _N, std::move(_pde)) {
+                                   DiffusionPDE* _pde)
+  : FDMBase(_x_dom, _J, _t_dom, _N, _pde) {
   calculate_step_sizes();
   set_initial_conditions();
 }

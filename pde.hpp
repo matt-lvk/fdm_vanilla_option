@@ -25,8 +25,8 @@ public:
 
 class BlackScholesPDE : public DiffusionPDE {
 public:
-    std::unique_ptr<VanillaOption> option;
-    BlackScholesPDE(std::unique_ptr<VanillaOption> _option);
+    VanillaOption* option;
+    BlackScholesPDE(VanillaOption* _option);
     
     double diff_coeff(const double& S, const double& t) const;
     double conv_coeff(const double& S, const double &t) const;

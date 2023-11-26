@@ -8,8 +8,8 @@
 #include "pde.hpp"
 #include <cmath>
 
-BlackScholesPDE::BlackScholesPDE(std::unique_ptr<VanillaOption> _option)
-: option(std::move(_option)) {}
+BlackScholesPDE::BlackScholesPDE(VanillaOption* _option)
+: option(_option) {}
 
 // diffusion term
 double BlackScholesPDE::diff_coeff(const double& S, const double& t) const {
